@@ -1,8 +1,7 @@
 basic.forever(function () {
-    if (input.compassHeading() > 120) {
-        magicbit.MotorRunDual(magicbit.Motors.M1, 0, magicbit.Motors.M1, 50)
+    if (magicbit.Ultrasonic(DigitalPin.P2) < 20 && magicbit.Ultrasonic(DigitalPin.P2) > 2) {
+        magicbit.MotorRunDual(magicbit.Motors.M1, -200, magicbit.Motors.M2, 200)
+        basic.pause(500)
     }
-    if (input.compassHeading() < 60) {
-        magicbit.MotorRunDual(magicbit.Motors.M1, 50, magicbit.Motors.M1, 0)
-    }
+    magicbit.MotorRunDual(magicbit.Motors.M1, 255, magicbit.Motors.M2, 255)
 })
